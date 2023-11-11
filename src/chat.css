@@ -1,0 +1,21 @@
+.reply-input {
+  border-top: 3px solid #000000;
+  border-bottom: 3px dashed #000000;
+}
+
+.reply-input::placeholder {
+  color: #000000;
+}
+
+.back-link {
+  padding: 0px;
+  height: 40px;
+  width: 40px;
+  flex-basis: 20%;
+  font-size: 0.8rem;
+}
+
+.heading-name {
+  margin-right: 10vw;
+  width: 100%;
+}

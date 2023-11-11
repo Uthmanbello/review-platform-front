@@ -1,0 +1,61 @@
+.landing-page {
+  text-align: center;
+  width: 100vw;
+  background-color: #02081150;
+  background: url('./images/back.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #08090a98;
+  height: 100vh;
+}
+
+.landing-page-heading {
+  font-family: 'Josefin Sans', sans-serif;
+  margin-top: 30vh;
+  font-size: 3.5rem;
+  color: #ffb267;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.landing-page-icon {
+  width: 120px;
+  animation: heartbeat 3s infinite;
+  margin-top: -5vh;
+}
+
+.lang-btns {
+  display: flex;
+  margin-top: 15vh;
+}
+
+.lang-btn {
+  background-color:#ffb267;
+  color: #000000;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  width: 150px;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+.lang-btn:hover {
+  background-color:#000000;
+  color: #ffb267;
+  cursor: pointer;
+}
+
+.landing-footer {
+  margin-left: 5vw;
+  position: fixed;
+  color: #ffb267;
+  bottom: 0;
+  left: 0;
+}
