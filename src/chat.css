@@ -1,3 +1,34 @@
+.nav {
+  display: flex;
+  justify-content: start;
+  align-items:left;
+  background-color: #0F7876;
+  height: 100vh;
+  width: 15vw;
+  position: fixed;
+  left: 0;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: start;
+  align-items: left;
+  text-align: left;
+  gap: 20px;
+}
+
+.active {
+  color: #F98F45;
+  background-color: #ffffff;
+}
+
 .reply-input {
   border-top: 3px solid #000000;
   border-bottom: 3px dashed #000000;
@@ -9,13 +40,17 @@
 
 .back-link {
   padding: 0px;
-  height: 40px;
-  width: 40px;
-  flex-basis: 20%;
+  height: 0px;
+  width: 0px;
+  flex-basis: 0%;
   font-size: 0.8rem;
+  margin-top: 30px;
 }
 
-.heading-name {
-  margin-right: 10vw;
-  width: 100%;
+.back-link:hover {
+  scale: 1.01;
+}
+
+.fa-arrow-left:hover {
+  scale: 1.01;
 }

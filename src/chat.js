@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './chat.css';
 
 const ChatApp = () => {
@@ -58,12 +58,31 @@ const ChatApp = () => {
   return (
     <div className="landing-page">
       <div className='landing'>
+
+      <nav className="nav column">
+        <div className='column align-center'>
+          <Link to="/" className='row align-center justify-center english-btn back-link' style={{fontSize: '0.8rem', gap: '5px'}}><i class="fa-solid fa-arrow-left fa-2x white"></i>BACK</Link>
+          <h1 className='white heading-name'>My Reviews</h1>
+        </div>
+        <ul className='column'>
+          <li>
+            <NavLink to="/info">Info</NavLink>
+          </li>
+          <li>
+            <NavLink to="/facebook">Facebook</NavLink>
+          </li>
+          <li>
+            <NavLink to="/tripadvisor">Tripadvisor</NavLink>
+          </li>
+        </ul>
+      </nav>
+
         <div style={{ width: '98%'}}>
 
-          <div className='row align-center space-between'>
+          {/* <div className='row align-center space-between'>
           <Link to="/" className='row align-center justify-center lang-btn english-btn back-link' style={{fontSize: '0.8rem', gap: '5px'}}><i class="fa-solid fa-arrow-left fa-2x white"></i></Link>
           <h1 className='green heading-name'>My Reviews</h1>
-          </div>
+          </div> */}
 
           <div ref={chatContainer} style={{ height: '65vh', overflowY: 'scroll', padding: '10px' }}>
             {messages.map((message, index) => (
