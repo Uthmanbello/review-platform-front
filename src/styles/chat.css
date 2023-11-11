@@ -1,7 +1,7 @@
 .nav {
   background-color: #0F7876;
   height: 100vh;
-  width: 15vw;
+  width: 18vw;
   position: fixed;
   left: 0;
   padding-left: 0px;
@@ -21,23 +21,24 @@ a {
 .nav ul {
   list-style: none;
   display: flex;
-  /* text-align: left; */
-  gap: 30px;
+  gap: 15px;
   margin: 0;
   padding: 0;
-  margin-top: 70px;
+  margin-top: 60px;
   font-weight: 600;
+  width: 100%;
 }
 
-.nav ul li .nav-link{
-  width: 15vw;
+.nav ul li a {
+  width: 100%;
+  padding: 10px;
+  display: block;
 }
 
 .active {
   color: #F98F45;
   background-color: #ffffff;
   font-weight: 600;
-  padding: 8px;
   display: block;
 }
 
@@ -48,9 +49,6 @@ a {
   padding: 10px;
   display: inline-block;
   border-radius: 4px;
-  /* margin-top: 20px;
-  margin-bottom: 40px;
-  margin-left: 40%; */
 }
 
 .coming-soon {
