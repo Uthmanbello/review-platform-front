@@ -29,7 +29,7 @@ const ChatApp = () => {
           </li>
         </ul>
 
-        <a href='https://uthmanbello.github.io/portfolio/'><p className='deroyale'>DeRoy<span class="deroyale-at">@</span>l&#233;</p></a>
+        <a href='https://uthmanbello.github.io/portfolio/' className='deroyale'>DeRoy<span class="deroyale-at">@</span>l&#233;</a>
       </nav>
 
       <Routes>

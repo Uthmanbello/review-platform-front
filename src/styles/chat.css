@@ -20,11 +20,12 @@ a {
 .nav ul {
   list-style: none;
   display: flex;
-  text-align: left;
+  /* text-align: left; */
   gap: 20px;
   margin: 0;
   padding: 0;
-  margin-top: 50px;
+  margin-top: 70px;
+  font-weight: 600;
 }
 
 .nav ul li .nav-link{
@@ -35,7 +36,8 @@ a {
   color: #F98F45;
   background-color: #ffffff;
   font-weight: 600;
-  padding-right: 76%;
+  padding: 12px;
+  display: block;
 }
 
 .reply-input {
@@ -70,7 +72,7 @@ a {
   font-weight: 700;
   position: fixed;
   bottom: 0;
-  left: 20px;
+  left: 15px;
 }
 
 .deroyale-at {
