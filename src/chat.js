@@ -59,10 +59,12 @@ const ChatApp = () => {
     <div className="landing-page">
       <div className='landing'>
         <div style={{ width: '98%'}}>
+
           <div className='row align-center space-between'>
-          <Link to="/" className='row align-center justify-center lang-btn english-btn back-link' style={{fontSize: '0.8rem'}}>Back</Link>
-          <h1 className='gold heading-name'>Hotel Check-in</h1>
+          <Link to="/" className='row align-center justify-center lang-btn english-btn back-link' style={{fontSize: '0.8rem', gap: '5px'}}><i class="fa-solid fa-arrow-left fa-2x white"></i></Link>
+          <h1 className='green heading-name'>My Reviews</h1>
           </div>
+
           <div ref={chatContainer} style={{ height: '65vh', overflowY: 'scroll', padding: '10px' }}>
             {messages.map((message, index) => (
               <div key={index} style={{ textAlign: message.isUser ? 'right' : 'left', margin: '5px' }}>

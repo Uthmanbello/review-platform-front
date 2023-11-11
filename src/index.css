@@ -29,6 +29,10 @@ a {
   color: #122920;
 }
 
+.white {
+  color: #ffffff;
+}
+
 .row {
   display: flex;
   flex-direction: row;
