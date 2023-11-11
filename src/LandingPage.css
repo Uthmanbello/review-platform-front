@@ -1,8 +1,8 @@
 .landing-page {
   text-align: center;
   width: 100vw;
-  background-color: #02081150;
-  background: url('./images/back.jpg');
+  background-color: #ffffff50;
+  background: url('./images/hotel-room.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #08090a98;
+  background-color: #ffffff63;
   height: 100vh;
 }
 
@@ -20,7 +20,7 @@
   font-family: 'Josefin Sans', sans-serif;
   margin-top: 30vh;
   font-size: 3.5rem;
-  color: #ffb267;
+  color: #0F7876;
   text-shadow: 2px 2px 4px #000000;
 }
 
@@ -36,8 +36,8 @@
 }
 
 .lang-btn {
-  background-color:#ffb267;
-  color: #000000;
+  background-color:#0F7876;
+  color: #ffffff;
   padding: 15px;
   border: none;
   border-radius: 15px;
@@ -47,15 +47,15 @@
 }
 
 .lang-btn:hover {
-  background-color:#000000;
-  color: #ffb267;
+  background-color:#ffffff;
+  color: #0F7876;
   cursor: pointer;
 }
 
 .landing-footer {
   margin-left: 5vw;
   position: fixed;
-  color: #ffb267;
+  color: #0F7876;
   bottom: 0;
   left: 0;
 }

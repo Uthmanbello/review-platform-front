@@ -4,16 +4,21 @@ body {
 
 * {
   box-sizing: border-box;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #383838;
 }
+
 
 a {
   text-decoration: none;
 }
 
 .green {
-  color: rgb(145, 194, 156);
+  color: #0F7876;
+}
+
+.orange {
+  color: #F98F45;
 }
 
 .gold {
