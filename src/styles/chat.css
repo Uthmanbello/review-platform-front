@@ -63,3 +63,27 @@ a {
 .fa-arrow-left:hover {
   scale: 1.01;
 }
+
+.deroyale {
+  color: #f8f8f8;
+  font-size: 1.2rem; 
+  font-weight: 700;
+  position: fixed;
+  bottom: 0;
+  left: 20px;
+}
+
+.deroyale-at {
+  color: #ffb267; 
+  display: inline-block; 
+  animation: rotateLetter 2s infinite;
+}
+
+@keyframes rotateLetter {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}

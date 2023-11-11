@@ -28,6 +28,8 @@ const ChatApp = () => {
             <NavLink to="/tripadvisor">Tripadvisor</NavLink>
           </li>
         </ul>
+
+        <a href='https://uthmanbello.github.io/portfolio/'><p className='deroyale'>DeRoy<span class="deroyale-at">@</span>l&#233;</p></a>
       </nav>
 
       <Routes>
