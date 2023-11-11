@@ -1,16 +1,17 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import './App.css';
-import ChatApp from './chat';
-import LandingPage from './LandingPage';
+import { Routes, Route, Router, Navigate } from 'react-router-dom';
+import './styles/App.css';
+import ChatApp from './components/chat';
+import LandingPage from './components/LandingPage';
 
 function App() {
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/reviews" element={<ChatApp />} />
-      </Routes>
+      </Routes> */}
+      <ChatApp />
     </div>
   );
 }
