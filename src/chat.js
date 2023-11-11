@@ -68,7 +68,7 @@ const ChatApp = () => {
           <div ref={chatContainer} style={{ height: '65vh', overflowY: 'scroll', padding: '10px' }}>
             {messages.map((message, index) => (
               <div key={index} style={{ textAlign: message.isUser ? 'right' : 'left', margin: '5px' }}>
-                <div style={{ padding: '10px', display: 'inline-block', borderRadius: '10px', backgroundColor: message.isUser ? '#814100d5' : '#ffb367d5', color: message.isUser ? '#ffffff' : '#000000' }}>
+                <div style={{ padding: '10px', display: 'inline-block', borderRadius: '10px', backgroundColor: message.isUser ? '#FDDAC1' : '#B0DAD9', color: message.isUser ? '#492a13' : '#083f3e' }}>
                   {message.text}
                 </div>
               </div>
