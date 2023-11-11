@@ -3,6 +3,9 @@ import { NavLink, Link, Routes, Route } from 'react-router-dom';
 import Info from './Info';
 import Facebook from './Facebook';
 import Tripadvisor from './Tripadvisor';
+import Booking from './Booking';
+// import Google from './Google';
+// import Expedia from './Expedia';
 import '../styles/chat.css';
 
 const ChatApp = () => {
@@ -27,6 +30,15 @@ const ChatApp = () => {
           <li>
             <NavLink to="/tripadvisor">Tripadvisor</NavLink>
           </li>
+          <li>
+            <NavLink to="/booking">Booking</NavLink>
+          </li>
+          {/* <li>
+            <NavLink to="/google">Google My Business</NavLink>
+          </li>
+          <li>
+            <NavLink to="/expedia">Expedia</NavLink>
+          </li> */}
         </ul>
 
         <a href='https://uthmanbello.github.io/portfolio/' className='deroyale'>DeRoy<span class="deroyale-at">@</span>l&#233;</a>
@@ -36,6 +48,9 @@ const ChatApp = () => {
         <Route path="/" element={<Info />} />
         <Route path="/facebook" element={<Facebook />} />
         <Route path="/tripadvisor" element={<Tripadvisor />} />
+        <Route path="/booking" element={<Booking />} />
+        {/* <Route path="/google" element={<Google />} />
+        <Route path="/expedia" element={<Expedia />} /> */}
       </Routes>
 
       </div>
