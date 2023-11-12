@@ -14,7 +14,7 @@ const Info = () => {
     <>
       <h2 className='page-heading'>INFO</h2>
 
-      {/* <div className=''> */}
+      <div className='reviews-container'>
       {reviewsData.map((review, index) => (
         <div
           key={index}
@@ -27,7 +27,7 @@ const Info = () => {
           <p className={review.className}><span className={review.className}>Pending - </span> {review.pending}</p>
         </div>
       ))}
-      {/* </div> */}
+      </div>
     </>
   );
 };
