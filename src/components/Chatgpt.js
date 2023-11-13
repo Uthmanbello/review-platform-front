@@ -50,6 +50,7 @@ const Chatgpt = () => {
         const apiRequestBody = {
             'model': 'gpt-3.5-turbo',
             'messages': [
+                systemMessage,
                 ...apiMessages
             ]
         }
@@ -78,7 +79,7 @@ const Chatgpt = () => {
     <>
       <div style={{ position: 'relative', height: '70vh', width: '50vw' }}>
         <MainContainer>
-            <ChatContainer>
+            <ChatContainer style={{ backgroundColor: '#000000' }}>
                 <MessageList
                     scrollBehavior='smooth'
                     typingIndicator={typing ? <TypingIndicator content='My Review partner is typing' /> : null }>
