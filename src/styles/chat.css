@@ -1,0 +1,115 @@
+.nav {
+  background-color: #0F7876;
+  height: 100vh;
+  width: 18vw;
+  position: fixed;
+  left: 0;
+  padding-left: 0px;
+}
+
+.heading-name {
+  margin-bottom: -10px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  margin-top: 60px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.nav ul li a {
+  width: 100%;
+  padding: 10px;
+  display: block;
+}
+
+.active {
+  color: #F98F45;
+  background-color: #ffffff;
+  font-weight: 600;
+  display: block;
+}
+
+.page-heading {
+  color: #0F7876;
+  background-color: #EAF5F5;
+  font-size: 1.5rem;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.coming-soon {
+  background-color: #FDDAC1;
+  color: #F98F45;
+  font-weight: 600;
+  font-size: 2rem;
+  border-radius: 10px;
+  width: 30%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reply-input {
+  border-top: 3px solid #0F7876;
+  border-bottom: 3px dashed #0F7876;
+}
+
+.reply-input::placeholder {
+  color: #ffffff;
+}
+
+.back-link {
+  padding: 0px;
+  height: 0px;
+  width: 0px;
+  flex-basis: 0%;
+  font-size: 0.8rem;
+  margin-top: 20px;
+}
+
+.back-link:hover {
+  scale: 1.01;
+}
+
+.fa-arrow-left:hover {
+  scale: 1.01;
+}
+
+.deroyale {
+  color: #f8f8f8;
+  font-size: 1.2rem; 
+  font-weight: 700;
+  position: fixed;
+  bottom: 0;
+  left: 15px;
+}
+
+.deroyale-at {
+  color: #ffb267; 
+  display: inline-block; 
+  animation: rotateLetter 2s infinite;
+}
+
+@keyframes rotateLetter {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
