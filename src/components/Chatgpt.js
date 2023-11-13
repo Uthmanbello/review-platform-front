@@ -3,14 +3,14 @@ import { useState } from 'react';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { ChatContainer, MainContainer, Message, MessageInput, MessageList, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-const API_KEY = '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';
+const API_KEY = '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';
 
 const Chatgpt = () => {
     const [typing, setTyping] = useState(false)
 
     const [messages, setMessages] = useState([
         {
-            message: "Hello, I am Me",
+            message: "Hello, I am the Manager. How can I help you?",
             sender: "ChatGPT"
         }
     ])
@@ -77,17 +77,21 @@ const Chatgpt = () => {
     }
   return (
     <>
-      <div style={{ position: 'relative', height: '70vh', width: '50vw' }}>
-        <MainContainer>
-            <ChatContainer style={{ backgroundColor: '#000000' }}>
+      <div style={{ position: 'relative', height: '75vh', width: '60vw', marginLeft: '7vw' }}>
+        <MainContainer style={{ backgroundColor: 'transparent', border: 'none' }}>
+            <ChatContainer style={{ backgroundColor: 'transparent' }}>
                 <MessageList
+                    style={{ backgroundColor: 'transparent', color: 'green' }}
                     scrollBehavior='smooth'
-                    typingIndicator={typing ? <TypingIndicator content='My Review partner is typing' /> : null }>
+                    typingIndicator={typing ? <TypingIndicator style={{ backgroundColor: '#ffffffc7', width: '25%' }} content='The Manager is typing' /> : null }>
                     {messages.map((message, i) => {
                         return <Message key={i} model={message} />
                     })}
                 </MessageList>
-                <MessageInput placeholder='Type message here' onSend={handleSend} />
+                <MessageInput 
+                    style={{ width: '100%', marginTop: '30px', padding: '20px', backgroundColor: '#0c5e5c', color: '#ffffff'}}
+                    placeholder='Type message here' 
+                    onSend={handleSend} />
             </ChatContainer>
         </MainContainer>
       </div>
