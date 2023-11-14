@@ -64,6 +64,11 @@ a {
   align-items: center;
 }
 
+.custom-chat-container { 
+  width: 75%;
+  margin-left: 15vw;
+}
+
 .reply-input {
   border-top: 3px solid #0F7876;
   border-bottom: 3px dashed #0F7876;
@@ -112,4 +117,69 @@ a {
     to {
         transform: rotateY(360deg);
     }
+}
+
+@media only screen and (max-width: 768px) {
+  .nav {
+    width: 20vw;
+  }
+  
+  .heading-name {
+    margin-bottom: -5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .nav div p {
+    font-size: 0.5rem;
+  }
+  
+  a {
+    font-size: 0.7rem;
+    padding: 12px;
+  }
+  
+  .nav ul {
+    gap: 10px;
+    margin-top: 40px;
+  }
+  
+  .page-heading {
+    font-size: 1.2rem;
+    margin-left: 18vw;
+  }
+  
+  .coming-soon {
+    font-weight: 600;
+    font-size: 1.4rem;
+    width: 60vw;
+    height: 40vw;
+    margin-left: 20vw;
+  }
+
+  .back-link {
+    font-size: 0.6rem;
+  }
+  
+  .back-link:hover {
+    scale: 1.01;
+  }
+
+  .fa-arrow-left {
+    font-size: 0.6rem;
+  }
+  
+  .fa-arrow-left:hover {
+    scale: 1.01;
+  }
+  
+  .deroyale {
+    font-size: 0.6rem;
+    left: 0px;
+  }
+ 
+  .custom-chat-container { 
+    width: 75%;
+    margin-left: 20vw;
+  }
 }

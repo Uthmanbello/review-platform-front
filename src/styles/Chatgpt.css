@@ -1,0 +1,24 @@
+.chat-container-class {
+  position: relative;
+  height: 75vh; 
+  width: 60vw; 
+  margin-left: 7vw;
+}
+
+.typing-indicator {
+  background-color: #ffffffc7;
+  width: 25%;
+}
+
+@media only screen and (max-width: 768px) {
+  .chat-container-class {
+    height: 80vh; 
+    width: 78vw; 
+    margin-left: 20vw;
+  }
+
+  .typing-indicator {
+    width: 45%;
+  }
+  
+}

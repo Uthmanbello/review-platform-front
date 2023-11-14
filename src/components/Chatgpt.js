@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { ChatContainer, MainContainer, Message, MessageInput, MessageList, TypingIndicator } from '@chatscope/chat-ui-kit-react';
+import '../styles/Chatgpt.css';
 
 const API_KEY = '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';
 
@@ -77,13 +78,13 @@ const Chatgpt = () => {
     }
   return (
     <>
-      <div style={{ position: 'relative', height: '75vh', width: '60vw', marginLeft: '7vw' }}>
+      <div className='chat-container-class'>
         <MainContainer style={{ backgroundColor: 'transparent', border: 'none' }}>
             <ChatContainer style={{ backgroundColor: 'transparent' }}>
                 <MessageList
                     style={{ backgroundColor: 'transparent', color: 'green' }}
                     scrollBehavior='smooth'
-                    typingIndicator={typing ? <TypingIndicator style={{ backgroundColor: '#ffffffc7', width: '25%' }} content='The Manager is typing' /> : null }>
+                    typingIndicator={typing ? <TypingIndicator className='typing-indicator' content='The Manager is typing' /> : null }>
                     {messages.map((message, i) => {
                         return <Message key={i} model={message} />
                     })}

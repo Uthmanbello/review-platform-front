@@ -19,7 +19,7 @@ const ChatApp = () => {
       {!isLandingPage && (
       <nav className="nav">
         <div className='column align-center'>
-          <Link to="/" className='row align-center justify-center english-btn back-link' style={{fontSize: '0.8rem', gap: '5px'}}><i class="fa-solid fa-arrow-left fa-2x white"></i>&nbsp;BACK</Link>
+          <Link to="/" className='row align-center justify-center english-btn back-link' style={{gap: '5px'}}><i class="fa-solid fa-arrow-left fa-2x white"></i>&nbsp;BACK</Link>
           <h1 className='white heading-name'>My Reviews</h1>
           <p className='white'>Hello, John Doe</p>
         </div>
