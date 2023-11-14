@@ -59,7 +59,7 @@ const Facebook = () => {
     <>
       <h2 className='page-heading'>FACEBOOK</h2>
 
-      <div style={{ width: '75%', marginLeft: '15vw'}}>
+      <div className='custom-chat-container'>
         <div ref={chatContainer} style={{ height: '65vh', overflowY: 'scroll', padding: '10px' }}>
           {messages.map((message, index) => (
             <div key={index} style={{ textAlign: message.isUser ? 'right' : 'left', margin: '5px' }}>
