@@ -4,7 +4,7 @@ import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { ChatContainer, MainContainer, Message, MessageInput, MessageList, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 import '../styles/Chatgpt.css';
 
-const API_KEY = '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';
+const API_KEY = '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';
 
 const Chatgpt = () => {
     const [typing, setTyping] = useState(false)
