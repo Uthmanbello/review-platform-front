@@ -84,13 +84,13 @@ const Chatgpt = () => {
                 <MessageList
                     style={{ backgroundColor: 'transparent', color: 'green' }}
                     scrollBehavior='smooth'
-                    typingIndicator={typing ? <TypingIndicator className='typing-indicator' content='The Manager is typing' /> : null }>
+                    typingIndicator={typing ? <TypingIndicator className='typing-indicator' content='Typing...' /> : null }>
                     {messages.map((message, i) => {
                         return <Message key={i} model={message} />
                     })}
                 </MessageList>
-                <MessageInput 
-                    style={{ width: '100%', marginTop: '30px', padding: '20px', backgroundColor: '#0c5e5c', color: '#ffffff'}}
+                <MessageInput
+                    style={{ width: '100%', marginTop: '30px', padding: '10px', backgroundColor: '#0c5e5c', color: '#ffffff'}}
                     placeholder='Type message here' 
                     onSend={handleSend} />
             </ChatContainer>
