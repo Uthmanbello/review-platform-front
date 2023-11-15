@@ -59,7 +59,7 @@ const Chatgpt = () => {
         await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
             headers: {
-                'Authorization': 'Bearer ' + API_KEY,
+                'Authorization': 'Bearer ' + apiKey,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(apiRequestBody)
