@@ -49,6 +49,12 @@ a {
   padding: 10px;
   display: inline-block;
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.page-heading img {
+  width: 60px;
 }
 
 .coming-soon {

@@ -5,6 +5,11 @@
   margin-left: 7vw;
 }
 
+.review-icon {
+  width: 25px;
+  margin-top: -18px;
+}
+
 .typing-indicator {
   background-color: #ffffffc7;
   width: 15%;
