@@ -85,33 +85,33 @@ const Chatgpt = ({ reviews }) => {
 
     return (
         <>
-            <div className='chat-container-class'>
-                <div className='chat-messages' style={{ height: '75vh', overflowY: 'scroll', padding: '10px' }}>
-                    {messages.map((message, i) => (
-                        <div key={i} className={`message ${message.sender === 'user' ? 'left' : 'right'}`}>
-                            {message.sender === 'user' && <div className='bubble' style={{ textAlign: 'right', margin: '5px'}}>
-                                <div style={{ textAlign: 'right', padding: '10px', display: 'inline-block', borderRadius: '10px', backgroundColor:  '#FDDAC1', color: '#492a13' }}>
-                                    <p style={{ fontSize: '0.7rem' }}>{message.username}</p>
-                                    <p style={{ fontSize: '0.9rem'}}>{message.review}</p>
-                                    <div className='row space-between align-center'>
-                                        <p style={{ fontSize: '0.6rem', marginTop: '-10px' }}>{message.date}</p>
-                                        <img src={FacebookIcon} alt='facebook icon' className='review-icon' /> 
-                                        <p style={{ fontSize: '0.6rem', marginTop: '-10px' }}>{message.time}</p>
-                                    </div>
-                                </div>
-                            </div>}
-                            
-                            {message.sender === 'ChatGPT' && <div className='bubble' style={{ textAlign:'left', margin: '10px', maxWidth: '80%'}}>
-                                <div style={{ fontSize: '0.9rem', padding: '15px', display: 'inline-block', borderRadius: '10px', backgroundColor: '#B0DAD9', color: '#083f3e' }}>
-                                    {message.response}
-                                </div>
-                            </div>}
-                        </div>
-                    ))}
-                </div>
-                <div className='input-container'>
-                    <button onClick={handleSend}>Next Review</button>
-                </div>
+          <div className='chat-container-class'>
+              <div className='chat-messages' style={{ height: '75vh', overflowY: 'scroll', padding: '10px' }}>
+                  {messages.map((message, i) => (
+                      <div key={i} className={`message ${message.sender === 'user' ? 'left' : 'right'}`}>
+                          {message.sender === 'user' && <div className='bubble' style={{ textAlign: 'right', margin: '5px'}}>
+                              <div style={{ textAlign: 'right', padding: '10px', display: 'inline-block', borderRadius: '10px', backgroundColor:  '#FDDAC1', color: '#492a13' }}>
+                                  <p style={{ fontSize: '0.7rem' }}>{message.username}</p>
+                                  <p style={{ fontSize: '0.9rem'}}>{message.review}</p>
+                                  <div className='row align-center' style={{ justifyContent:'end' }}>
+                                      <p style={{ fontSize: '0.6rem', marginTop: '-10px' }}>{message.date}</p>&nbsp;&nbsp;
+                                      <p style={{ fontSize: '0.6rem', marginTop: '-10px' }}>{message.time}</p>&nbsp;&nbsp;
+                                      <img src={FacebookIcon} alt='facebook icon' className='review-icon' /> 
+                                  </div>
+                              </div>
+                          </div>}
+                          
+                          {message.sender === 'ChatGPT' && <div className='bubble' style={{ textAlign:'left', margin: '10px', maxWidth: '80%'}}>
+                              <div style={{ fontSize: '0.9rem', padding: '15px', display: 'inline-block', borderRadius: '10px', backgroundColor: '#B0DAD9', color: '#083f3e' }}>
+                                  {message.response}
+                              </div>
+                          </div>}
+                      </div>
+                  ))}
+              </div>
+              <div className='input-container'>
+                  <button onClick={handleSend}>Next Review</button>
+              </div>
             </div>
         </>
     );
