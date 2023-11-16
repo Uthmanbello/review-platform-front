@@ -1,4 +1,5 @@
 import React from 'react';
+import InfoIcon from '../images/info.png';
 import '../styles/Info.css';
 
 const Info = () => {
@@ -12,7 +13,7 @@ const Info = () => {
 
   return (
     <>
-      <h2 className='page-heading'>INFO</h2>
+      <h2 className='page-heading'><img src={InfoIcon} alt='info icon' className='heading-icon' />&nbsp;INFO</h2>
 
       <div className='reviews-container'>
       {reviewsData.map((review, index) => (

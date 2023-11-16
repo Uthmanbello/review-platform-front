@@ -58,7 +58,7 @@ const Facebook = () => {
 
   return (
     <>
-      <h2 className='page-heading'><img src={FacebookIcon} alt='facebook icon' />&nbsp;FACEBOOK</h2>
+      <h2 className='page-heading'><img src={FacebookIcon} alt='facebook icon' className='heading-icon' />&nbsp;FACEBOOK</h2>
 
       <div className='custom-chat-container'>
         <div ref={chatContainer} style={{ height: '65vh', overflowY: 'scroll', padding: '10px' }}>
