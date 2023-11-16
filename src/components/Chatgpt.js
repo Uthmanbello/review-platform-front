@@ -21,6 +21,7 @@ const Chatgpt = ({ reviews }) => {
 
         const reviewText = reviews[currentReviewIndex].review_text;
         const username = reviews[currentReviewIndex].username;
+        const fullName = reviews[currentReviewIndex].full_name;
         const updatedAtString = reviews[currentReviewIndex].updated_at;
         const updatedAt = new Date(updatedAtString);
         const formattedDate = updatedAt.toLocaleDateString();
@@ -29,6 +30,7 @@ const Chatgpt = ({ reviews }) => {
         const newMessage = {
             review: reviewText,
             username: username,
+            fullname: fullName,
             time: formattedTime,
             date: formattedDate,
             sender: 'user',
@@ -91,7 +93,10 @@ const Chatgpt = ({ reviews }) => {
                       <div key={i} className={`message ${message.sender === 'user' ? 'left' : 'right'}`}>
                           {message.sender === 'user' && <div className='bubble' style={{ textAlign: 'right', margin: '5px'}}>
                               <div style={{ textAlign: 'right', padding: '10px', display: 'inline-block', borderRadius: '10px', backgroundColor:  '#FDDAC1', color: '#492a13' }}>
-                                  <p style={{ fontSize: '0.7rem' }}>{message.username}</p>
+                                  <div className='row align-center' style={{ justifyContent:'end' }}>
+                                      <p style={{ fontSize: '0.6rem', fontWeight: '600'}}>{message.fullname}</p>&nbsp;&nbsp;
+                                      <p style={{ fontSize: '0.6rem' }}>{message.username}</p>&nbsp;&nbsp;
+                                  </div>
                                   <p style={{ fontSize: '0.9rem'}}>{message.review}</p>
                                   <div className='row align-center' style={{ justifyContent:'end' }}>
                                       <p style={{ fontSize: '0.6rem', marginTop: '-10px' }}>{message.date}</p>&nbsp;&nbsp;
