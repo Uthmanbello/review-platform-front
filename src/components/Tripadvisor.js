@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Chatgpt from './Chatgpt';
+import TripadvisorIcon from '../images/tripadvisor.png';
 
 const Tripadvisor = () => {
 
@@ -23,7 +24,7 @@ const Tripadvisor = () => {
   return (
     <>
       <h2 className='page-heading'>TRIPADVISOR</h2>
-      <Chatgpt reviews={reviews} />
+      <Chatgpt reviews={reviews} icon={TripadvisorIcon} />
     </>
   );
 };

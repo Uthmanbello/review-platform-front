@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Chatgpt.css';
 import Facebook from './Facebook';
-import FacebookIcon from '../images/facebook.png';
 
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
 
-const Chatgpt = ({ reviews }) => {
+const Chatgpt = ({ reviews, icon }) => {
     const [typing, setTyping] = useState(false);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [messages, setMessages] = useState([]);
@@ -101,7 +100,7 @@ const Chatgpt = ({ reviews }) => {
                                   <div className='row align-center' style={{ justifyContent:'end' }}>
                                       <p style={{ fontSize: '0.6rem', marginTop: '-10px' }}>{message.date}</p>&nbsp;&nbsp;
                                       <p style={{ fontSize: '0.6rem', marginTop: '-10px' }}>{message.time}</p>&nbsp;&nbsp;
-                                      <img src={FacebookIcon} alt='facebook icon' className='review-icon' /> 
+                                      <img src={icon} alt='icon' className='review-icon' /> 
                                   </div>
                               </div>
                           </div>}
