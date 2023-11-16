@@ -23,7 +23,7 @@ const Tripadvisor = () => {
 
   return (
     <>
-      <h2 className='page-heading'>TRIPADVISOR</h2>
+      <h2 className='page-heading'><img src={TripadvisorIcon} alt='tripadvisor icon' />&nbsp;TRIPADVISOR</h2>
       <Chatgpt reviews={reviews} icon={TripadvisorIcon} />
     </>
   );
