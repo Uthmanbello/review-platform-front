@@ -92,7 +92,7 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
                               <div style={{ fontSize: '0.9rem', padding: '15px', display: 'inline-block', borderRadius: '10px', backgroundColor: '#B0DAD9', color: '#083f3e' }}>
                               <p style={{ fontSize: '0.6rem', fontWeight: '600'}}>The Manager</p>
                                   {message.response}
-                                <div className='row align-center' style={{ justifyContent:'end' }}>
+                                <div className='row align-center' style={{ justifyContent: 'start' }}>
                                   <p style={{ fontSize: '0.6rem' }}>{message.date}</p>&nbsp;&nbsp;
                                   <p style={{ fontSize: '0.6rem' }}>{message.time}</p>&nbsp;&nbsp;
                                 </div>
