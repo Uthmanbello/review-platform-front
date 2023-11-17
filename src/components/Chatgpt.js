@@ -114,7 +114,7 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
                                     <p style={{ fontSize: '0.6rem' }}>{message.time}</p>
                                   </div>
                                   <div className='column align-center' style={{ textAlign: 'right', justifyContent: 'end' }}>
-                                      <button style={{ border: 'none', backgroundColor: 'transparent' }}><i className="fa-solid fa-pen-to-square fa-2x"></i></button>
+                                      <button style={{ border: 'none', backgroundColor: 'transparent' }}><i className="fa-solid fa-pen-to-square"></i></button>
                                       <p style={{ fontSize: '0.7rem', marginTop: '-2px' }}>EDIT</p>
                                    </div>
                                 </div>
