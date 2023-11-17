@@ -1,54 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Chatgpt.css';
-import Facebook from './Facebook';
 
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
 
-const Chatgpt = ({ reviews, icon }) => {
-    const [typing, setTyping] = useState(false);
+const Chatgpt = ({ reviews, icon, getMessageData }) => {
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [messages, setMessages] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const chatContainer = useRef(null);
+
+    useEffect(() => {
+      const scrollToBottom = () => {
+        if (chatContainer.current) {
+          chatContainer.current.scrollTop = chatContainer.current.scrollHeight;
+        }
+      };
+      scrollToBottom();
+    }, [messages]);
 
     useEffect(() => {
         handleSend();
     }, [reviews]);
 
     const handleSend = async () => {
-        if (reviews.length === 0 || currentReviewIndex >= reviews.length) {
+        if (reviews.length === 0 || currentReviewIndex >= reviews.length || isLoading) {
             return;
         }
 
-        const reviewText = reviews[currentReviewIndex].review_text;
-        const username = reviews[currentReviewIndex].username;
-        const fullName = reviews[currentReviewIndex].full_name;
-        const updatedAtString = reviews[currentReviewIndex].updated_at;
-        const updatedAt = new Date(updatedAtString);
-        const formattedDate = updatedAt.toLocaleDateString();
-        const formattedTime = updatedAt.toLocaleTimeString();
-
-        const newMessage = {
-            review: reviewText,
-            username: username,
-            fullname: fullName,
-            time: formattedTime,
-            date: formattedDate,
-            sender: 'user',
-        };
+        const newMessage = getMessageData(reviews[currentReviewIndex]);
 
         const newMessages = [...messages, newMessage];
 
         setMessages(newMessages);
-        setTyping(true);
+        setIsLoading(true);
 
         await processMessageToChatGPT(newMessages);
 
+        setIsLoading(false);
         setCurrentReviewIndex((prevIndex) => prevIndex + 1);
     };
 
     async function processMessageToChatGPT(chatMessages) {
         let apiMessages = chatMessages.map((messageObject) => {
-            return { role: messageObject.sender, content: messageObject.review };
-        });
+            return { role: 'assistant', content: messageObject.review || '' };
+          });
 
         const systemMessage = {
             role: 'system',
@@ -77,24 +73,27 @@ const Chatgpt = ({ reviews, icon }) => {
                     ...chatMessages,
                     {
                         response: data.choices[0].message.content,
+                        date: new Date(data.created * 1000).toLocaleDateString(),
+                        time: new Date(data.created * 1000).toLocaleTimeString(),
                         sender: 'ChatGPT',
                     },
                 ]);
-                setTyping(false);
             });
     }
+
+    const isLastReview = currentReviewIndex === reviews.length;
 
     return (
         <>
           <div className='chat-container-class'>
-              <div className='chat-messages' style={{ height: '75vh', overflowY: 'scroll', padding: '10px' }}>
+              <div ref={chatContainer} className='chat-messages' style={{ height: '68vh', overflowY: 'scroll', padding: '10px' }}>
                   {messages.map((message, i) => (
                       <div key={i} className={`message ${message.sender === 'user' ? 'left' : 'right'}`}>
                           {message.sender === 'user' && <div className='bubble' style={{ textAlign: 'right', margin: '5px'}}>
                               <div style={{ textAlign: 'right', padding: '10px', display: 'inline-block', borderRadius: '10px', backgroundColor:  '#FDDAC1', color: '#492a13' }}>
                                   <div className='row align-center' style={{ justifyContent:'end' }}>
                                       <p style={{ fontSize: '0.6rem', fontWeight: '600'}}>{message.fullname}</p>&nbsp;&nbsp;
-                                      <p style={{ fontSize: '0.6rem' }}>{message.username}</p>&nbsp;&nbsp;
+                                      <p style={{ fontSize: '0.6rem' }}>@{message.username}</p>&nbsp;&nbsp;
                                   </div>
                                   <p style={{ fontSize: '0.9rem'}}>{message.review}</p>
                                   <div className='row align-center' style={{ justifyContent:'end' }}>
@@ -107,14 +106,28 @@ const Chatgpt = ({ reviews, icon }) => {
                           
                           {message.sender === 'ChatGPT' && <div className='bubble' style={{ textAlign:'left', margin: '10px', maxWidth: '80%'}}>
                               <div style={{ fontSize: '0.9rem', padding: '15px', display: 'inline-block', borderRadius: '10px', backgroundColor: '#B0DAD9', color: '#083f3e' }}>
+                              <p style={{ fontSize: '0.6rem', fontWeight: '600'}}>The Manager</p>
                                   {message.response}
+                                <div className='row align-center' style={{ justifyContent: 'space-between' }}>
+                                  <div className='row'>
+                                    <p style={{ fontSize: '0.6rem' }}>{message.date}</p>&nbsp;&nbsp;
+                                    <p style={{ fontSize: '0.6rem' }}>{message.time}</p>
+                                  </div>
+                                  <div className='column align-center' style={{ textAlign: 'right', justifyContent: 'end' }}>
+                                      <button style={{ border: 'none', backgroundColor: 'transparent' }}><i className="fa-solid fa-pen-to-square"></i></button>
+                                      <p style={{ fontSize: '0.7rem', marginTop: '-2px' }}>EDIT</p>
+                                   </div>
+                                </div>
                               </div>
                           </div>}
                       </div>
                   ))}
               </div>
-              <div className='input-container'>
-                  <button onClick={handleSend}>Next Review</button>
+              {isLoading && <p style={{ backgroundColor: '#ffffff97', width: '30%', margin: 'auto' }}><i>Typing...</i></p>}
+              <div className='input-container' disabled={isLoading || isLastReview} style={{ opacity: isLastReview ? 0.5 : 1 }}>
+                  <button onClick={handleSend} className='lang-btn'>
+                    {isLastReview ? 'The End' : 'Next Review'}
+                  </button>
               </div>
             </div>
         </>

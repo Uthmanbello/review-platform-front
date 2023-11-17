@@ -1,13 +1,19 @@
 .chat-container-class {
   position: relative;
   height: 75vh; 
-  width: 60vw; 
+  width: 65vw; 
   margin-left: 7vw;
 }
 
 .review-icon {
   width: 25px;
   margin-top: -18px;
+}
+
+.fa-pen-to-square {
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #383838;
 }
 
 .typing-indicator {
