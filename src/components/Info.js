@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import InfoIcon from '../images/info.png';
+import data from '../json/tripAdvisorReviewsData.json';
 import '../styles/Info.css';
 
 const Info = () => {
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:3000/api/v1/facebook_reviews');
+        const data = await response.json();
+        setReviews(data);
+      } catch (error) {
+        console.error('Error fetching Facebook reviews:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const reviewsData = [
-    { platform: 'FACEBOOK', reviews: 125, replied: 120, pending: 5, bgColor: '#FDDAC1', textColor: '#F98F45', className: 'orange' },
-    { platform: 'TRIPADVISOR', reviews: 97, replied: 86, pending: 11, bgColor: '#B0DAD9', textColor: '#0F7876', className: 'green' },
+    { platform: 'FACEBOOK', reviews: `${reviews.length}`, replied: `${reviews.length}`, pending: 0, bgColor: '#FDDAC1', textColor: '#F98F45', className: 'orange' },
+    { platform: 'TRIPADVISOR', reviews: `${data.length}`, replied: `${data.length}`, pending: 0, bgColor: '#B0DAD9', textColor: '#0F7876', className: 'green' },
     { platform: 'BOOKING', reviews: 'N/A', replied: 'N/A', pending: 'N/A', bgColor: '#FDDAC1', textColor: '#0F7876', className: 'orange' },
     { platform: 'GOOGLE MY BUSINESS', reviews: 'N/A', replied: 'N/A', pending: 'N/A', bgColor: '#B0DAD9', textColor: '#0F7876', className: 'green' },
     { platform: 'EXPEDIA', reviews: 'N/A', replied: 'N/A', pending: 'N/A', bgColor: '#FDDAC1', textColor: '#0F7876', className: 'orange' },
