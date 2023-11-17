@@ -29,8 +29,18 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
 
     async function processMessageToChatGPT(chatMessages) {
         let apiMessages = chatMessages.map((messageObject) => {
-            return { role: messageObject.sender, content: messageObject.review };
-        });
+            // return { role: 'assistant', content: messageObject.review };
+            return { role: 'assistant', content: messageObject.review || '' };
+          });
+    //     let apiMessages = chatMessages.map((messageObject) => {
+    //     let role = '';
+    //     if (messageObject.sender === 'ChatGPT') {
+    //       role = 'assistant'
+    //     } else {
+    //       role = 'user'
+    //     }
+    //     return { role: role, content: messageObject.review}
+    // });
 
         const systemMessage = {
             role: 'system',
@@ -92,9 +102,15 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
                               <div style={{ fontSize: '0.9rem', padding: '15px', display: 'inline-block', borderRadius: '10px', backgroundColor: '#B0DAD9', color: '#083f3e' }}>
                               <p style={{ fontSize: '0.6rem', fontWeight: '600'}}>The Manager</p>
                                   {message.response}
-                                <div className='row align-center' style={{ justifyContent: 'start' }}>
-                                  <p style={{ fontSize: '0.6rem' }}>{message.date}</p>&nbsp;&nbsp;
-                                  <p style={{ fontSize: '0.6rem' }}>{message.time}</p>&nbsp;&nbsp;
+                                <div className='row align-center' style={{ justifyContent: 'space-between' }}>
+                                  <div className='row'>
+                                    <p style={{ fontSize: '0.6rem' }}>{message.date}</p>&nbsp;&nbsp;
+                                    <p style={{ fontSize: '0.6rem' }}>{message.time}</p>
+                                  </div>
+                                  <div className='column align-center' style={{ textAlign: 'right', justifyContent: 'end' }}>
+                                      <button style={{ border: 'none', backgroundColor: 'transparent' }}><i className="fa-solid fa-pen-to-square fa-2x"></i></button>
+                                      <p style={{ fontSize: '0.7rem', marginTop: '-2px' }}>EDIT</p>
+                                   </div>
                                 </div>
                               </div>
                           </div>}

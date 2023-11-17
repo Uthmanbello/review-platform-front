@@ -10,6 +10,11 @@
   margin-top: -18px;
 }
 
+.fa-pen-to-square {
+  cursor: pointer;
+  color: #383838;
+}
+
 .typing-indicator {
   background-color: #ffffffc7;
   width: 15%;
