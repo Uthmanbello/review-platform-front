@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Chatgpt.css';
 
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
@@ -8,12 +8,23 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
     const [messages, setMessages] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
+    const chatContainer = useRef(null);
+
+    useEffect(() => {
+      const scrollToBottom = () => {
+        if (chatContainer.current) {
+          chatContainer.current.scrollTop = chatContainer.current.scrollHeight;
+        }
+      };
+      scrollToBottom();
+    }, [messages]);
+
     useEffect(() => {
         handleSend();
     }, [reviews]);
 
     const handleSend = async () => {
-        if (reviews.length === 0 || currentReviewIndex >= reviews.length) {
+        if (reviews.length === 0 || currentReviewIndex >= reviews.length || isLoading) {
             return;
         }
 
@@ -70,10 +81,12 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
             });
     }
 
+    const isLastReview = currentReviewIndex === reviews.length - 1;
+
     return (
         <>
           <div className='chat-container-class'>
-              <div className='chat-messages' style={{ height: '70vh', overflowY: 'scroll', padding: '10px' }}>
+              <div ref={chatContainer} className='chat-messages' style={{ height: '68vh', overflowY: 'scroll', padding: '10px' }}>
                   {messages.map((message, i) => (
                       <div key={i} className={`message ${message.sender === 'user' ? 'left' : 'right'}`}>
                           {message.sender === 'user' && <div className='bubble' style={{ textAlign: 'right', margin: '5px'}}>
@@ -111,8 +124,10 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
                   ))}
               </div>
               {isLoading && <p style={{ backgroundColor: '#ffffff97', width: '30%', margin: 'auto' }}><i>Typing...</i></p>}
-              <div className='input-container'>
-                  <button onClick={handleSend} className='lang-btn'>Next Review</button>
+              <div className='input-container' disabled={isLoading || isLastReview} style={{ opacity: isLastReview ? 0.5 : 1 }}>
+                  <button onClick={handleSend} className='lang-btn'>
+                    {isLastReview ? 'The End' : 'Next Review'}
+                  </button>
               </div>
             </div>
         </>
