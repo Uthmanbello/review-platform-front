@@ -6,6 +6,7 @@ const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
 const Chatgpt = ({ reviews, icon, getMessageData }) => {
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [messages, setMessages] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         handleSend();
@@ -21,26 +22,18 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
         const newMessages = [...messages, newMessage];
 
         setMessages(newMessages);
+        setIsLoading(true);
 
         await processMessageToChatGPT(newMessages);
 
+        setIsLoading(false);
         setCurrentReviewIndex((prevIndex) => prevIndex + 1);
     };
 
     async function processMessageToChatGPT(chatMessages) {
         let apiMessages = chatMessages.map((messageObject) => {
-            // return { role: 'assistant', content: messageObject.review };
             return { role: 'assistant', content: messageObject.review || '' };
           });
-    //     let apiMessages = chatMessages.map((messageObject) => {
-    //     let role = '';
-    //     if (messageObject.sender === 'ChatGPT') {
-    //       role = 'assistant'
-    //     } else {
-    //       role = 'user'
-    //     }
-    //     return { role: role, content: messageObject.review}
-    // });
 
         const systemMessage = {
             role: 'system',
@@ -80,7 +73,7 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
     return (
         <>
           <div className='chat-container-class'>
-              <div className='chat-messages' style={{ height: '75vh', overflowY: 'scroll', padding: '10px' }}>
+              <div className='chat-messages' style={{ height: '70vh', overflowY: 'scroll', padding: '10px' }}>
                   {messages.map((message, i) => (
                       <div key={i} className={`message ${message.sender === 'user' ? 'left' : 'right'}`}>
                           {message.sender === 'user' && <div className='bubble' style={{ textAlign: 'right', margin: '5px'}}>
@@ -117,8 +110,9 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
                       </div>
                   ))}
               </div>
+              {isLoading && <p style={{ backgroundColor: '#ffffff97', width: '30%', margin: 'auto' }}><i>Typing...</i></p>}
               <div className='input-container'>
-                  <button onClick={handleSend}>Next Review</button>
+                  <button onClick={handleSend} className='lang-btn'>Next Review</button>
               </div>
             </div>
         </>
