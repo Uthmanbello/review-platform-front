@@ -8,7 +8,7 @@ const Facebook = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:3000/api/v1/facebook_reviews');
+        const response = await fetch('https://facebook-reviews-api.onrender.com/api/v1/facebook_reviews');
         const data = await response.json();
         console.log(data)
         setReviews(data);
