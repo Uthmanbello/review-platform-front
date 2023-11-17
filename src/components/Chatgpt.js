@@ -81,7 +81,7 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
             });
     }
 
-    const isLastReview = currentReviewIndex === reviews.length - 1;
+    const isLastReview = currentReviewIndex === reviews.length;
 
     return (
         <>

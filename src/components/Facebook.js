@@ -43,36 +43,6 @@ const Facebook = () => {
     <>
       <h2 className='page-heading'><img src={FacebookIcon} alt='facebook icon' className='heading-icon' />&nbsp;FACEBOOK</h2>
       <Chatgpt reviews={reviews} icon={FacebookIcon} getMessageData={getMessageData} />
-{/* 
-      <div className='custom-chat-container'>
-        <div ref={chatContainer} style={{ height: '65vh', overflowY: 'scroll', padding: '10px' }}>
-          {messages.map((message, index) => (
-            <div key={index} style={{ textAlign: message.isUser ? 'right' : 'left', margin: '5px' }}>
-              <div style={{ padding: '10px', display: 'inline-block', borderRadius: '10px', backgroundColor: message.isUser ? '#FDDAC1' : '#B0DAD9', color: message.isUser ? '#492a13' : '#083f3e' }}>
-                {message.text}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {currentQuestion < questions.length && !allQuestionsAnswered && (
-            <input
-              type="text"
-              className='reply-input'
-              placeholder="Type your reply..."
-              onKeyPress={(e) => {
-                if (e.key === 'Enter') {
-                  handleSendMessage(e.target.value);
-                  e.target.value = '';
-                }
-              }}
-              style={{ width: '100%', marginTop: '10px', marginBottom: '30px', padding: '20px', backgroundColor: '#0c5e5c', color: '#ffffff'}}
-            />
-          )}
-          {allQuestionsAnswered && <div className='reply-input' style={{ padding: '20px', marginTop: '10px', marginBottom: '30px', backgroundColor: '#0c5e5c', color: '#ffffff' }}>All questions answered. We'll be in touch!</div>}
-        </div>
-      </div> */}
     </>
   )}
 
