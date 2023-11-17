@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Chatgpt.css';
-import Facebook from './Facebook';
 
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
 
-const Chatgpt = ({ reviews, icon }) => {
-    const [typing, setTyping] = useState(false);
+const Chatgpt = ({ reviews, icon, getMessageData }) => {
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [messages, setMessages] = useState([]);
 
@@ -18,27 +16,11 @@ const Chatgpt = ({ reviews, icon }) => {
             return;
         }
 
-        const reviewText = reviews[currentReviewIndex].review_text;
-        const username = reviews[currentReviewIndex].username;
-        const fullName = reviews[currentReviewIndex].full_name;
-        const updatedAtString = reviews[currentReviewIndex].updated_at;
-        const updatedAt = new Date(updatedAtString);
-        const formattedDate = updatedAt.toLocaleDateString();
-        const formattedTime = updatedAt.toLocaleTimeString();
-
-        const newMessage = {
-            review: reviewText,
-            username: username,
-            fullname: fullName,
-            time: formattedTime,
-            date: formattedDate,
-            sender: 'user',
-        };
+        const newMessage = getMessageData(reviews[currentReviewIndex]);
 
         const newMessages = [...messages, newMessage];
 
         setMessages(newMessages);
-        setTyping(true);
 
         await processMessageToChatGPT(newMessages);
 
@@ -80,7 +62,6 @@ const Chatgpt = ({ reviews, icon }) => {
                         sender: 'ChatGPT',
                     },
                 ]);
-                setTyping(false);
             });
     }
 

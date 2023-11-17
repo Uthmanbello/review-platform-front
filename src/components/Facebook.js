@@ -1,65 +1,49 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
+import Chatgpt from './Chatgpt';
 import FacebookIcon from '../images/facebook.png';
-// import './Facebook.css';
 
 const Facebook = () => {
-  const [messages, setMessages] = useState([]);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [allQuestionsAnswered, setAllQuestionsAnswered] = useState(false);
-  const questions = [
-    "Welcome to DeRoyale Lodge! May I have your full name, please?",
-    "Could you provide your home address and email for our records?",
-    "We'll also need a phone number to reach you during your stay.",
-    "What's your nationality for legal purposes?",
-    "Could you please show your government-issued ID or passport?",
-    "Will you be using a credit card for incidentals during your stay?",
-    "What are your check-in and check-out dates?",
-    "Do you have any room preferences like smoking/non-smoking or bed type?",
-    "Any additional requests or special needs during your stay?",
-    "May I have your consent to store your information as per data protection laws?",
-    "We are grateful!"
-  ];
-
-  const chatContainer = useRef(null);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    if (currentQuestion < questions.length) {
-      setTimeout(() => {
-        setMessages((prevMessages) => [...prevMessages, { text: questions[currentQuestion], isUser: false }]);
-      }, 1000);
-    }
-  }, [currentQuestion]);
-
-  useEffect(() => {
-    const scrollToBottom = () => {
-      if (chatContainer.current) {
-        chatContainer.current.scrollTop = chatContainer.current.scrollHeight;
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:3000/api/v1/facebook_reviews');
+        const data = await response.json();
+        console.log(data)
+        setReviews(data);
+      } catch (error) {
+        console.error('Error fetching Facebook reviews:', error);
       }
     };
-    scrollToBottom();
-  }, [messages]);
+    fetchData();
+  }, []);
 
-  const handleSendMessage = (message) => {
-    setMessages((prevMessages) => [...prevMessages, { text: message, isUser: true }]);
-    handleResponse(message);
-  };
+  const getMessageData = (review) => {
+    const reviewText = review.review_text;
+    const username = review.username;
+    const fullName = review.full_name;
+    const updatedAtString = review.updated_at;
+    const updatedAt = new Date(updatedAtString);
+    const formattedDate = updatedAt.toLocaleDateString();
+    const formattedTime = updatedAt.toLocaleTimeString();
 
-  const handleResponse = (reply) => {
-    setMessages((prevMessages) => [...prevMessages, { text: "Got it: " + reply, isUser: false }]);
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      setAllQuestionsAnswered(true);
-      setMessages((prevMessages) => [...prevMessages, { text: "Thank you for the information!", isUser: false }]);
-    }
+    return {
+      review: reviewText,
+      username: username,
+      fullname: fullName,
+      time: formattedTime,
+      date: formattedDate,
+      sender: 'user',
+    };
   };
 
 
   return (
     <>
       <h2 className='page-heading'><img src={FacebookIcon} alt='facebook icon' className='heading-icon' />&nbsp;FACEBOOK</h2>
-
+      <Chatgpt reviews={reviews} icon={FacebookIcon} getMessageData={getMessageData} />
+{/* 
       <div className='custom-chat-container'>
         <div ref={chatContainer} style={{ height: '65vh', overflowY: 'scroll', padding: '10px' }}>
           {messages.map((message, index) => (
@@ -88,7 +72,7 @@ const Facebook = () => {
           )}
           {allQuestionsAnswered && <div className='reply-input' style={{ padding: '20px', marginTop: '10px', marginBottom: '30px', backgroundColor: '#0c5e5c', color: '#ffffff' }}>All questions answered. We'll be in touch!</div>}
         </div>
-      </div>
+      </div> */}
     </>
   )}
 

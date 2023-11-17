@@ -10,9 +10,9 @@ const Google = () => {
   // PUT
   // https://mybusiness.googleapis.com/v4/accounts/{accountId}/locations/{locationId}/reviews/{reviewId}/reply
 
-{
-  comment: "Thank you for visiting our business!"
-}
+  // {
+  //   comment: "Thank you for visiting our business!"
+  // }
 
   return (
     <>
