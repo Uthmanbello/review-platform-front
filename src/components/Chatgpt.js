@@ -7,6 +7,8 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [messages, setMessages] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
+    const [editedResponse, setEditedResponse] = useState('');
 
     const chatContainer = useRef(null);
 
@@ -81,7 +83,24 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
             });
     }
 
+    const handleEdit = () => {
+      setIsEditing(true);
+      setEditedResponse(messages[messages.length - 1]?.response || '');
+    };
+  
+    const handleSaveEdit = () => {
+      const editedMessages = [...messages];
+      editedMessages[messages.length - 1].response = editedResponse;
+      setMessages(editedMessages);
+      setIsEditing(false);
+    };
+  
+    const handleCancelEdit = () => {
+      setIsEditing(false);
+    };
+
     const isLastReview = currentReviewIndex === reviews.length;
+    const lastMessage = messages[messages.length - 1];
 
     return (
         <>
@@ -104,32 +123,63 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
                               </div>
                           </div>}
                           
-                          {message.sender === 'ChatGPT' && <div className='bubble' style={{ textAlign:'left', margin: '10px', maxWidth: '80%'}}>
-                              <div style={{ fontSize: '0.9rem', padding: '15px', display: 'inline-block', borderRadius: '10px', backgroundColor: '#B0DAD9', color: '#083f3e' }}>
-                              <p style={{ fontSize: '0.6rem', fontWeight: '600'}}>The Manager</p>
-                                  {message.response}
-                                <div className='row align-center' style={{ justifyContent: 'space-between' }}>
-                                  <div className='row'>
-                                    <p style={{ fontSize: '0.6rem' }}>{message.date}</p>&nbsp;&nbsp;
-                                    <p style={{ fontSize: '0.6rem' }}>{message.time}</p>
-                                  </div>
-                                  <div className='column align-center' style={{ textAlign: 'right', justifyContent: 'end' }}>
-                                      <button style={{ border: 'none', backgroundColor: 'transparent' }}><i className="fa-solid fa-pen-to-square"></i></button>
-                                      <p style={{ fontSize: '0.7rem', marginTop: '-2px' }}>EDIT</p>
-                                   </div>
-                                </div>
+                          {message.sender === 'ChatGPT' && 
+                          <div className='bubble' style={{ textAlign:'left', margin: '10px', maxWidth: '80%'}}>
+                          {isEditing && lastMessage === message ? (
+                            <>
+                              <textarea
+                                value={editedResponse}
+                                onChange={(e) => setEditedResponse(e.target.value)}
+                                placeholder='Edit your response...'
+                                style={{ fontSize: '0.9rem', padding: '15px', display: 'inline-block', borderRadius: '10px', backgroundColor: '#B0DAD9', color: '#083f3e', width: '100%', height: '25vh' }}
+                              />
+                              <div className='row' style={{ justifyContent: 'end' }}>
+                                <button onClick={handleSaveEdit} className='column align-center' style={{ border: 'none', backgroundColor: 'transparent' }}>
+                                  <i className="fa-regular fa-circle-check fa-icon"></i>
+                                  <p style={{ fontSize: '0.7rem', marginTop: '-2px' }}>SAVE</p>
+                                </button>
+                                <button onClick={handleCancelEdit} className='column align-center' style={{ border: 'none', backgroundColor: 'transparent' }}>
+                                  <i className="fa-regular fa-circle-xmark fa-icon"></i>
+                                  <p style={{ fontSize: '0.7rem', marginTop: '-2px' }}>CANCEL</p>
+                                </button>
                               </div>
+                            </>
+                          ) : (<>
+                                <div style={{ fontSize: '0.9rem', padding: '15px', display: 'inline-block', borderRadius: '10px', backgroundColor: '#B0DAD9', color: '#083f3e' }}>
+                                <p style={{ fontSize: '0.6rem', fontWeight: '600'}}>The Manager</p>
+                                    {message.response}
+                                  <div className='row align-center' style={{ justifyContent: 'space-between' }}>
+                                    <div className='row'>
+                                      <p style={{ fontSize: '0.6rem' }}>{message.date}</p>&nbsp;&nbsp;
+                                      <p style={{ fontSize: '0.6rem' }}>{message.time}</p>
+                                    </div>
+
+                                    {lastMessage && !isLoading && !isEditing && (
+                                      <div className='column align-center' style={{ textAlign: 'right', justifyContent: 'end' }}>
+                                        <button onClick={handleEdit} className='column align-center' style={{ border: 'none', backgroundColor: 'transparent' }}>
+                                          <i className="fa-solid fa-pen-to-square fa-icon"></i>
+                                          <p style={{ fontSize: '0.7rem', marginTop: '-2px' }}>EDIT</p>
+                                        </button>
+                                      </div>
+                                    )}       
+                                  </div>
+                                </div>
+                              </>)}
                           </div>}
                       </div>
                   ))}
               </div>
+
               <div className='input-container' disabled={isLoading || isLastReview} style={{ opacity: isLastReview ? 0.5 : 1 }}>
-                  <button onClick={handleSend} className='lang-btn'>
-                    {isLoading ? 'Typing...' : (isLastReview ? 'The End' : 'Next Review')}
-                  </button>
-              </div>
-            </div>
-        </>
+              {isEditing ? ( ''
+              ) : (
+                <button onClick={handleSend} className='lang-btn'>
+                  {isLoading ? 'Typing...' : isLastReview ? 'The End' : 'Next Review'}
+                </button>
+              )}
+          </div>
+        </div>
+      </>
     );
 };
 
