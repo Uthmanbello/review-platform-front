@@ -21,13 +21,6 @@
   margin-top: 30vh;
   font-size: 3.5rem;
   color: #0F7876;
-  text-shadow: 2px 2px 4px #000000;
-}
-
-.landing-page-icon {
-  width: 120px;
-  animation: heartbeat 3s infinite;
-  margin-top: -5vh;
 }
 
 .lang-btns {
@@ -58,4 +51,22 @@
   color: #0F7876;
   bottom: 0;
   left: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .landing-page-heading {
+    margin-top: 10vh;
+    font-size: 3rem;
+  }
+
+  .lang-btns {
+    margin-top: 35vh;
+  }
+
+  .lang-btn {
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    width: 140px;
+  }
 }
