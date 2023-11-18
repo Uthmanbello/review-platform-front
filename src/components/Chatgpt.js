@@ -175,7 +175,7 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
 
         <div className='input-container' disabled={isLoading || isLastReview} style={{ opacity: isLastReview ? 0.5 : 1 }}>
           {!editingMessageIndex ? (
-            <button onClick={handleSend} className='lang-btn'>
+            <button onClick={handleSend} className='lang-btn-mob'>
               {isLoading ? <><i className='white'>Typing...</i></> : isLastReview ? 'The End' : 'Next Review'}
             </button>
           ) : null}
