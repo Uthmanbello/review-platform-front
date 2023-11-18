@@ -16,9 +16,15 @@
   color: #383838;
 }
 
-.typing-indicator {
-  background-color: #ffffffc7;
-  width: 15%;
+.lang-btn-mob {
+  background-color:#0F7876;
+  color: #ffffff;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  width: 150px;
+  transition: background-color 0.3s, color 0.3s; 
 }
 
 @media only screen and (max-width: 768px) {
@@ -32,4 +38,10 @@
     width: 45%;
   }
   
+  .lang-btn-mob {
+    padding: 10px;
+    font-size: 0.8rem;
+    width: 120px;
+    border-radius: 10px;
+  }
 }
