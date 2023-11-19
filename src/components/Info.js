@@ -21,8 +21,8 @@ const Info = () => {
   }, []);
 
   const reviewsData = [
-    { platform: 'FACEBOOK', reviews: `${reviews.length}`, replied: `${reviews.length}`, pending: 0, bgColor: '#FDDAC1', textColor: '#F98F45', className: 'orange' },
-    { platform: 'TRIPADVISOR', reviews: `${data.length}`, replied: `${data.length}`, pending: 0, bgColor: '#B0DAD9', textColor: '#0F7876', className: 'green' },
+    { platform: 'FACEBOOK', reviews: `${reviews.length}`, replied: 0, pending: `${reviews.length}`, bgColor: '#FDDAC1', textColor: '#F98F45', className: 'orange' },
+    { platform: 'TRIPADVISOR', reviews: `${data.length}`, replied: 0, pending: `${data.length}`, bgColor: '#B0DAD9', textColor: '#0F7876', className: 'green' },
     { platform: 'BOOKING', reviews: 'N/A', replied: 'N/A', pending: 'N/A', bgColor: '#FDDAC1', textColor: '#0F7876', className: 'orange' },
     { platform: 'GOOGLE MY BUSINESS', reviews: 'N/A', replied: 'N/A', pending: 'N/A', bgColor: '#B0DAD9', textColor: '#0F7876', className: 'green' },
     { platform: 'EXPEDIA', reviews: 'N/A', replied: 'N/A', pending: 'N/A', bgColor: '#FDDAC1', textColor: '#0F7876', className: 'orange' },

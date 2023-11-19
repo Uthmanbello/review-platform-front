@@ -21,6 +21,7 @@
   margin-top: 30vh;
   font-size: 3.5rem;
   color: #0F7876;
+  background-color: #ffffff5b;
 }
 
 .lang-btns {
@@ -55,12 +56,12 @@
 
 @media only screen and (max-width: 768px) {
   .landing-page-heading {
-    margin-top: 10vh;
+    margin-top: 20vh;
     font-size: 3rem;
   }
 
   .lang-btns {
-    margin-top: 35vh;
+    margin-top: 25vh;
   }
 
   .lang-btn {
