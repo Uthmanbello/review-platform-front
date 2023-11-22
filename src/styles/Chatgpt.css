@@ -24,6 +24,7 @@
   border-radius: 15px;
   font-size: 1.2rem;
   width: 150px;
+  cursor: pointer;
   transition: background-color 0.3s, color 0.3s; 
 }
 
