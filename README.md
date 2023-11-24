@@ -24,7 +24,7 @@
 
 # 📖 My Review Partner <a name="about-project"></a>
 
-**My Review Partner** is an AI powered project which was built using React. It fetches reviews from popular social media and gives responses to the reviews automatically. The user can also edit the responses as they deem fit. The app also provides the user with the flexibility of navigating through reviews and the generated responses.
+**My Review Partner** is a responsive AI powered project which was built using React. It fetches reviews from popular social media and gives responses to the reviews automatically. The user can also edit the responses as they deem fit. The app also provides the user with the flexibility of navigating through reviews and the generated responses.
 
 ## 🛠 Built With <a name="built-with"></a>
 -HTML5
