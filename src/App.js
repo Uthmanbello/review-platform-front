@@ -7,11 +7,11 @@ import LandingPage from './components/LandingPage';
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/reviews" element={<ChatApp />} />
-      </Routes> */}
-      <ChatApp />
+      </Routes>
+      {/* <ChatApp /> */}
     </div>
   );
 }

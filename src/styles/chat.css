@@ -29,17 +29,33 @@ a {
   width: 100%;
 }
 
-.nav ul li a {
+.nav ul li button {
   width: 100%;
   padding: 10px;
   display: block;
+  border: none;
+  background-color: #0F7876;
+  font-size: 1.2rem;
+  color: #ffffff;
+  padding: 12px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
 }
 
-.active {
+.nav ul li button.active {
   color: #F98F45;
   background-color: #ffffff;
   font-weight: 600;
   display: block;
+  width: 100%;
+}
+
+.chat-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
 }
 
 .page-heading {
@@ -51,6 +67,7 @@ a {
   border-radius: 4px;
   display: flex;
   align-items: center;
+  margin-left: 180px;
 }
 
 .heading-icon {
@@ -68,8 +85,9 @@ a {
   font-weight: 600;
   font-size: 2rem;
   border-radius: 10px;
+  margin-left: 180px;
   width: 30%;
-  height: 30%;
+  height: 30vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,12 +173,14 @@ a {
     margin-top: 40px;
   }
 
-  .nav ul li a {
-    padding-left: 5px;
+  .nav ul li button {
+    font-size: 0.6rem;
+    padding: 12px;
+    padding-left: 10px;
   }
   
   .page-heading {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-left: 18vw;
   }
 
@@ -175,7 +195,7 @@ a {
   
   .coming-soon {
     font-weight: 600;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     width: 60vw;
     height: 40vw;
     margin-left: 20vw;
