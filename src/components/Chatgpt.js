@@ -130,7 +130,7 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
                       <textarea
                         value={editedResponse}
                         onChange={(e) => setEditedResponse(e.target.value)}
-                        placeholder='Edit your response...'
+                        placeholder='Type your response...'
                         style={{ fontSize: '0.9rem', padding: '15px', display: 'inline-block', borderRadius: '10px', backgroundColor: '#B0DAD9', color: '#083f3e', width: '100%', height: '25vh' }}
                       />
                       <div className='row' style={{ justifyContent: 'end' }}>
