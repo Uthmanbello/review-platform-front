@@ -21,7 +21,9 @@
   margin-top: 30vh;
   font-size: 3.5rem;
   color: #0F7876;
-  background-color: #ffffff5b;
+  background-color: #ffffff77;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .lang-btns {
