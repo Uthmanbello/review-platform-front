@@ -39,6 +39,8 @@ a {
   color: #ffffff;
   padding: 12px;
   font-weight: 600;
+  outline: none;
+  cursor: pointer;
 }
 
 .nav ul li button.active {
@@ -47,6 +49,13 @@ a {
   font-weight: 600;
   display: block;
   width: 100%;
+}
+
+.chat-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
 }
 
 .page-heading {
@@ -58,6 +67,7 @@ a {
   border-radius: 4px;
   display: flex;
   align-items: center;
+  margin-left: 180px;
 }
 
 .heading-icon {
@@ -75,8 +85,9 @@ a {
   font-weight: 600;
   font-size: 2rem;
   border-radius: 10px;
+  margin-left: 180px;
   width: 30%;
-  height: 30%;
+  height: 30vh;
   display: flex;
   justify-content: center;
   align-items: center;

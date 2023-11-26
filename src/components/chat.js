@@ -63,22 +63,22 @@ const ChatApp = () => {
           </a>
         </nav>
 
-        <div style={{ display: activeComponent === 'info' ? 'block' : 'none' }}>
+        <div className='chat-component' style={{ display: activeComponent === 'info' ? 'flex' : 'none' }}>
           <Info />
         </div>
-        <div style={{ display: activeComponent === 'facebook' ? 'block' : 'none' }}>
+        <div className='chat-component' style={{ display: activeComponent === 'facebook' ? 'flex' : 'none' }}>
           <Facebook />
         </div>
-        <div style={{ display: activeComponent === 'tripadvisor' ? 'block' : 'none' }}>
+        <div className='chat-component' style={{ display: activeComponent === 'tripadvisor' ? 'flex' : 'none' }}>
         <Tripadvisor />
         </div>
-        <div style={{ display: activeComponent === 'booking' ? 'block' : 'none' }}>
+        <div className='chat-component' style={{ display: activeComponent === 'booking' ? 'flex' : 'none' }}>
           <Booking />
         </div>
-        <div style={{ display: activeComponent === 'google' ? 'block' : 'none' }}>
+        <div className='chat-component' style={{ display: activeComponent === 'google' ? 'flex' : 'none' }}>
           <Google />
         </div>
-        <div style={{ display: activeComponent === 'expedia' ? 'block' : 'none' }}>
+        <div className='chat-component' style={{ display: activeComponent === 'expedia' ? 'flex' : 'none' }}>
           <Expedia />
         </div>
       </div>
