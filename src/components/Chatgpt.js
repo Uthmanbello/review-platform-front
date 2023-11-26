@@ -71,7 +71,6 @@ const Chatgpt = ({ reviews, icon, getMessageData }) => {
         return data.json();
       })
       .then((data) => {
-        console.log(data);
         setMessages([
           ...chatMessages,
           {
